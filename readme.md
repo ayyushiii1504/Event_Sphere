@@ -1,85 +1,67 @@
 # Event Sphere
 
-**Event Sphere** is a smart, interactive event management platform built with the MERN stack. Unlike standard event apps, Event Sphere not only lets users create and join events but also fosters real-time engagement through integrated chat. It provides a seamless experience for discovering, managing, and participating in events, making social planning and networking effortless.  
+**Event Sphere** is a modern MERN stack event management platform that lets users create, join, and explore events with ease. It also features real-time chat for participant engagement, making event organization and participation seamless.  
 
-Whether you’re organizing a meetup, workshop, or social gathering, Event Sphere simplifies event management while keeping participants connected and engaged. Its intuitive interface, real-time updates, and responsive design ensure a smooth experience across devices.
+With an intuitive interface and responsive design, Event Sphere ensures a smooth experience across devices, simplifying social planning and networking.
 
-## **Key Features**
-- **User Authentication:** Secure signup and login with JWT.
-- **Event Creation & Management:** Easily create, edit, and delete events.
-- **Event Participation:** Join or leave events with a click.
-- **My Events Dashboard:** View events created and joined in one place.
-- **Real-time Chat:** Communicate with event participants instantly using Socket.IO.
-- **Responsive Design:** Optimized for desktop and mobile use.
-- **Modern UI:** Clean and visually appealing design using React, CSS Modules, Styled Components, and Bootstrap.
+## Key Features
+- **User Authentication:** Secure signup and login with JWT
+- **Event Creation & Management:** Create and delete events
+- **Event Participation:** Join or leave events
+- **My Events Dashboard:** View events created and joined
+- **Real-time Chat:** Communicate instantly using Socket.IO
+- **Responsive Design:** Optimized for desktop and mobile
+- **Modern UI:** Clean design with React, Styled Components, and Tailwind CSS
 
-## **Tech Stack**
-- **Frontend:** React.js, CSS Modules, Styled Components, Bootstrap
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Real-time Communication:** Socket.IO
-- **Authentication:** JWT (JSON Web Tokens)
+## Tech Stack
+- Frontend: React.js, Tailwind, Styled Components
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Real-time Communication: Socket.IO
+- Authentication: JWT (JSON Web Tokens)
 
-## **Project Structure**
-event-sphere/ <- Root folder (place README.md here)
-├── client/ <- React frontend
-├── server/ <- Node.js + Express backend
-└── README.md <- This file
 
-bash
-Copy code
+## Setup Instructions
 
-## **Setup Instructions**
+### 1. Clone the Repository
 
-### **1. Clone the Repository**
 ```bash
 git clone https://github.com/yourusername/event-sphere.git
 cd event-sphere
-2. Setup Backend
-bash
-Copy code
+```
+
+### 2.Setup Backend 
+```bash
 cd server
 npm install
-Create a .env file with the following:
+```
+Create a .env file in the server folder:
 
-ini
-Copy code
+```bash 
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 PORT=5000
-Start the backend server:
-
-bash
-Copy code
+```
+Start backend server:
+```bash
 npm run dev
-3. Setup Frontend
-bash
-Copy code
+```
+### 3. Setup Frontend
+
+```bash
 cd ../client
 npm install
-Create a .env file (if needed for API URL):
-
-bash
-Copy code
+```
+Create a .env file in the client folder if needed:
+```bash
 REACT_APP_API_URL=http://localhost:5000/api
+```
+
 Start the frontend server:
+```bash
+npm run dev
+```
 
-bash
-Copy code
-npm start
-4. Access the App
-Open http://localhost:3000 in your browser.
+## Author
 
-Contributing
-Fork the repository
-
-Create your feature branch (git checkout -b feature/YourFeature)
-
-Commit your changes (git commit -m 'Add some feature')
-
-Push to the branch (git push origin feature/YourFeature)
-
-Create a Pull Request
-
-License
-MIT License © 2025 Ayushi Singh
+Made by Ayushi Singh
