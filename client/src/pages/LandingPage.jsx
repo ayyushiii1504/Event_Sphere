@@ -1,18 +1,7 @@
-import React, { useState } from 'react';
-import { GlobeAltIcon, MagnifyingGlassCircleIcon, ChatBubbleBottomCenterTextIcon, CalendarDaysIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-// Feature Card Component
-const FeatureCard = ({ icon, title, children }) => (
-  <div className="bg-white rounded-xl shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary mb-6 mx-auto">
-      {icon}
-    </div>
-    <h3 className="text-2xl font-semibold text-dark mb-4">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{children}</p>
-  </div>
-);
 
 const LandingPage = () => {
   return (
@@ -20,125 +9,211 @@ const LandingPage = () => {
       <Navbar />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative h-[85vh] text-white flex items-center justify-center text-center">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1470&q=80')" }}></div>
-          <div className="absolute inset-0 bg-black/60"></div>
-          <div className="relative z-10 px-4">
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-              Where Moments<br />Become <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Movements</span>
+        {/* ── Hero ── */}
+        <section
+          className="relative min-h-[92vh] flex items-center justify-center overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #0f0c1a 0%, #1C1C2E 40%, #2a1f0e 75%, #1C1C2E 100%)' }}
+        >
+          {/* Radial gold glow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,134,11,0.13) 0%, transparent 70%)' }}
+          />
+
+          {/* Decorative geometric rings */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] border border-accent/8 rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] border border-accent/10 rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-accent/12 rounded-full pointer-events-none" />
+
+          {/* Corner ornaments */}
+          <div className="absolute top-8 left-8 w-16 h-16 border-t border-l border-accent/30 pointer-events-none" />
+          <div className="absolute top-8 right-8 w-16 h-16 border-t border-r border-accent/30 pointer-events-none" />
+          <div className="absolute bottom-8 left-8 w-16 h-16 border-b border-l border-accent/30 pointer-events-none" />
+          <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-accent/30 pointer-events-none" />
+
+          {/* Scattered gold dots */}
+          {[
+            { top: '18%', left: '12%' }, { top: '72%', left: '8%' },
+            { top: '25%', right: '10%' }, { top: '65%', right: '14%' },
+            { top: '45%', left: '5%' }, { top: '50%', right: '5%' },
+          ].map((pos, i) => (
+            <div key={i} className="absolute w-1 h-1 bg-accent/40 rounded-full pointer-events-none" style={pos} />
+          ))}
+
+          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto fade-up">
+            <p className="text-xs font-sans font-medium tracking-widest uppercase text-accent mb-8">
+              ✦ &nbsp; The Premier Event Platform &nbsp; ✦
+            </p>
+            <h1 className="font-display text-6xl md:text-8xl font-light text-white leading-none mb-4">
+              Where Moments
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-200 mb-10">
-              The ultimate platform to discover, create and connect through incredible events happening right around you.
+            <h1 className="font-display text-6xl md:text-8xl font-semibold italic leading-none mb-10"
+              style={{ color: '#D4AF37' }}>
+              Become Movements
+            </h1>
+            <div className="w-20 h-px mx-auto mb-10" style={{ background: 'linear-gradient(to right, transparent, #D4AF37, transparent)' }} />
+            <p className="font-sans text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+              style={{ color: 'rgba(232,224,208,0.75)' }}>
+              Discover curated events, connect with like-minded people, and craft experiences that linger long after the lights go down.
             </p>
-            <div className="flex justify-center items-center gap-4">
-              <a href="#" className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/signup" className="btn-gold text-sm tracking-widest uppercase px-10 py-4">
                 Get Started
-              </a>
+              </Link>
+              <Link
+                to="/login"
+                className="inline-flex items-center justify-center text-sm tracking-widest uppercase px-10 py-4 border transition-all duration-300 font-sans font-medium"
+                style={{ borderColor: 'rgba(232,224,208,0.3)', color: 'rgba(232,224,208,0.85)' }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(232,224,208,0.1)'; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+              >
+                Sign In
+              </Link>
+            </div>
+          </div>
+
+          {/* Bottom fade into page bg */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+            style={{ background: 'linear-gradient(to top, #FAF8F5, transparent)' }} />
+        </section>
+
+        
+
+        {/* ── Features ── */}
+        <section className="py-28 bg-light">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <p className="text-xs font-sans tracking-widest uppercase text-primary mb-4">Platform Features</p>
+              <h2 className="font-display text-5xl font-light text-dark">The Sphere of Connection</h2>
+              <div className="w-16 h-px bg-primary mx-auto mt-6" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  number: '01',
+                  title: 'Smart Discovery',
+                  desc: 'Explore events by city, category, or keyword. Tailored filters surface experiences that match your exact taste and schedule.'
+                },
+                {
+                  number: '02',
+                  title: 'Live Connection',
+                  desc: 'Every event has a dedicated chat room. Meet attendees, build anticipation, and keep the conversation alive long after the event ends.'
+                },
+                {
+                  number: '03',
+                  title: 'Effortless Creation',
+                  desc: 'From concept to crowd-ready in minutes. Our streamlined creation tools give organisers everything needed to launch professionally.'
+                }
+              ].map(({ number, title, desc }) => (
+                <div key={number} className="group relative border border-stone bg-white p-10 hover:border-primary transition-all duration-300"
+                  style={{ boxShadow: '0 2px 20px rgba(28,28,46,0.05)' }}
+                >
+                  <div className="absolute top-8 right-8 font-display text-5xl font-light text-stone group-hover:text-accent/30 transition-colors duration-300">
+                    {number}
+                  </div>
+                  <div className="w-8 h-px bg-primary mb-7" />
+                  <h3 className="font-display text-2xl font-semibold text-dark mb-4">{title}</h3>
+                  <p className="text-sm font-sans text-muted leading-relaxed">{desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="py-20 bg-slate-50">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl font-bold text-dark mb-4">The Sphere of Connection</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
-              A vibrant space where events come alive—discover, connect, and create with ease.
+        {/* ── How It Works ── */}
+        <section className="py-28 bg-cream border-y border-stone">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <p className="text-xs font-sans tracking-widest uppercase text-primary mb-4">The Process</p>
+              <h2 className="font-display text-5xl font-light text-dark">Three Steps to Your Next Experience</h2>
+              <div className="w-16 h-px bg-primary mx-auto mt-6" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+              {/* Connecting line */}
+              <div className="hidden md:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-stone" />
+
+              {[
+                { step: 'I', label: 'Discover', desc: 'Browse our curated catalogue of events happening near you and across the country.' },
+                { step: 'II', label: 'Connect', desc: 'Join the event community, chat with fellow attendees, and get excited together.' },
+                { step: 'III', label: 'Experience', desc: 'Show up, be present, and create memories that will stay with you long after.' },
+              ].map(({ step, label, desc }) => (
+                <div key={step} className="flex flex-col items-center text-center">
+                  <div className="relative z-10 w-16 h-16 border-2 border-primary bg-white flex items-center justify-center mb-8">
+                    <span className="font-display text-xl font-semibold text-primary">{step}</span>
+                  </div>
+                  <h3 className="font-display text-2xl font-semibold text-dark mb-3 tracking-wider uppercase">{label}</h3>
+                  <p className="text-sm font-sans text-muted leading-relaxed max-w-xs">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Organiser Section ── */}
+        <section className="py-28 bg-light">
+          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div>
+              <p className="text-xs font-sans tracking-widest uppercase text-primary mb-4">For Organisers</p>
+              <h2 className="font-display text-5xl font-light text-dark leading-tight mb-6">
+                Bring Your Vision <br /><em className="font-display font-semibold italic">to Life</em>
+              </h2>
+              <div className="w-12 h-px bg-primary mb-8" />
+              <p className="text-sm font-sans text-muted leading-relaxed mb-10">
+                EventSphere isn't just for discovering events — it's for creating them. Powerful tools make event creation, management, and audience engagement simple, secure, and successful.
+              </p>
+              <div className="space-y-5 mb-10">
+                {[
+                  'Intuitive creation with full control over title, date, city, and category',
+                  'Update or remove events any time with secure authorisation',
+                  'Built-in real-time chat to keep your audience engaged',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-5 h-5 border border-primary flex items-center justify-center mt-0.5">
+                      <span className="text-primary text-xs">✓</span>
+                    </div>
+                    <p className="text-sm font-sans text-charcoal leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <Link to="/signup" className="btn-gold text-sm tracking-widest uppercase px-8 py-3.5">
+                Start Creating
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-full h-full border border-stone" />
+              <img
+                src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80"
+                alt="Event organiser"
+                className="relative w-full object-cover"
+                style={{ aspectRatio: '4/3' }}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA Section ── */}
+        <section className="bg-dark py-28 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute top-12 left-12 w-32 h-32 border border-white/5 rotate-45" />
+          <div className="absolute bottom-12 right-12 w-48 h-48 border border-white/5 rotate-12" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-accent/5 rounded-full" />
+
+          <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <p className="text-xs font-sans tracking-widest uppercase text-accent mb-6">✦ &nbsp; Begin Today &nbsp; ✦</p>
+            <h2 className="font-display text-5xl md:text-6xl font-light text-white leading-tight mb-6">
+              Ready to Connect, Create,<br />
+              <em className="font-semibold italic text-accent">and Experience More?</em>
+            </h2>
+            <p className="text-sm font-sans text-stone/70 mb-12 leading-relaxed">
+              Join thousands of event-goers and organisers who have made EventSphere their home for extraordinary experiences.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <FeatureCard
-                icon={<MagnifyingGlassCircleIcon className="h-8 w-8 text-white" />}
-                title="Smart Event Discovery"
-              >
-                Explore events in your city or across categories. Our tailored search and filters help you quickly find the experiences that match your vibe.
-              </FeatureCard>
-              <FeatureCard
-                icon={<ChatBubbleBottomCenterTextIcon className="h-8 w-8 text-white" />}
-                title="Real-Time Connection"
-              >
-                Connect instantly with fellow attendees and organizers. Every event comes with its own dedicated chat to keep the buzz alive before, during, and after.
-              </FeatureCard>
-              <FeatureCard
-                icon={<CalendarDaysIcon className="h-8 w-8 text-white" />}
-                title="Easy Event Creation"
-              >
-                From idea to sold-out show. Our event creation feature gives you the power to launch, manage, and promote your event like a pro.
-              </FeatureCard>
-            </div>
+            <Link to="/signup" className="btn-gold text-sm tracking-widest uppercase px-12 py-4">
+              Join EventSphere — Free
+            </Link>
           </div>
         </section>
-
-        {/* 'How It Works' Section (New section from V2, styled for V1) */}
-        <section className="py-24 bg-white">
-                    <div className="container mx-auto px-6 text-center">
-                        <h2 className="text-4xl font-bold text-dark mb-12">Three Steps to Your Next Experience</h2>
-                        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-                            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 mt-px">
-                                <svg width="100%" height="2"><line x1="0" y1="1" x2="100%" y2="1" stroke="#D1D5DB" strokeWidth="2" strokeDasharray="8 8" /></svg>
-                            </div>
-                            <div className="relative z-10 flex flex-col items-center">
-                                <div className="h-24 w-24 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary mb-4 text-4xl font-bold text-white shadow-lg">1</div>
-                                <h3 className="text-2xl font-semibold text-dark mb-2">DISCOVER</h3>
-                                <p className="text-gray-600">Find your next passion with powerful search and curated suggestions.</p>
-                            </div>
-                            <div className="relative z-10 flex flex-col items-center">
-                                <div className="h-24 w-24 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary mb-4 text-4xl font-bold text-white shadow-lg">2</div>
-                                <h3 className="text-2xl font-semibold text-dark mb-2">CONNECT</h3>
-                                <p className="text-gray-600">Join the conversation, meet fellow attendees, and build excitement.</p>
-                            </div>
-                            <div className="relative z-10 flex flex-col items-center">
-                                <div className="h-24 w-24 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary mb-4 text-4xl font-bold text-white shadow-lg">3</div>
-                                <h3 className="text-2xl font-semibold text-dark mb-2">EXPERIENCE</h3>
-                                <p className="text-gray-600">Enjoy the events and make memories that last a lifetime.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Organizer Section */}
-                <section className="py-20 bg-slate-50">
-                    <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                        <div className="order-2 md:order-1">
-                            <h2 className="text-4xl font-bold text-dark mb-6 text-left">Bring Your Vision to Life.</h2>
-                            <p className="text-gray-600 mb-8 leading-relaxed">
-                                Event Sphere isn't just for finding events – it's for creating them. Our powerful tools make event creation and management simple, secure, and successful.
-                            </p>
-                            <ul className="space-y-4 mb-8">
-                                <li className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary text-white flex items-center justify-center mr-4 mt-1">✔</div>
-                                    <span className="text-gray-700"><strong>Intuitive Event Creation:</strong> Define your title, description, category, and location with ease.</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary text-white flex items-center justify-center mr-4 mt-1">✔</div>
-                                    <span className="text-gray-700"><strong>Full Control:</strong> Update or delete your events anytime, with secure authorization.</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary text-white flex items-center justify-center mr-4 mt-1">✔</div>
-                                    <span className="text-gray-700"><strong>Engaged Audiences:</strong> Facilitate communication with real-time chat and attendee lists.</span>
-                                </li>
-                            </ul>
-                            <a href="#" className="bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all inline-block">
-                                Start Creating Your Event
-                            </a>
-                        </div>
-                        <div className="order-1 md:order-2">
-                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Event Organizer" className="rounded-xl shadow-2xl w-full" />
-                        </div>
-                    </div>
-                </section>
-
-                {/* Final CTA Section */}
-                <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white text-center">
-                    <div className="container mx-auto px-6">
-                        <h2 className="text-4xl font-bold mb-4">Ready to Connect, Create, and Experience More?</h2>
-                        <p className="text-lg mb-8 max-w-2xl mx-auto">Join Event Sphere today and unlock a world of possibilities.</p>
-                        <a href="#" className="bg-white text-primary font-bold py-3 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
-                            Sign Up for Free
-                        </a>
-                    </div>
-                </section>
-
       </main>
 
       <Footer />
