@@ -20,10 +20,7 @@ const LandingPage = () => {
             style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,134,11,0.13) 0%, transparent 70%)' }}
           />
 
-          {/* Decorative geometric rings */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] border border-accent/8 rounded-full pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] border border-accent/10 rounded-full pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-accent/12 rounded-full pointer-events-none" />
+
 
           {/* Corner ornaments */}
           <div className="absolute top-8 left-8 w-16 h-16 border-t border-l border-accent/30 pointer-events-none" />
